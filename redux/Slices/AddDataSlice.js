@@ -19,18 +19,9 @@ export const addDataSlice = createSlice({
                 console.log(err)
             }
         },
-
-        deleteItem: async (state, action) => {
-            try {
-                const itemDoc = doc(db, "shoppinglist", action.payload.id);
-                await deleteDoc(itemDoc);
-            } catch(err){
-                console.log(err)
-            }
-        }
     }
 })
 
-export const {addItem, deleteItem, editItem} = addDataSlice.actions;
+export const { addItem } = addDataSlice.actions;
 
 export default addDataSlice.reducer;

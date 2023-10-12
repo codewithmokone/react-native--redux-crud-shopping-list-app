@@ -3,7 +3,7 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import { db } from "../../config/firebaseconfig";
 
 export const deleteDataSlice = createSlice({
-    name: 'db',
+    name: 'delete',
     initialState:[{
         title: "",
         description: "",

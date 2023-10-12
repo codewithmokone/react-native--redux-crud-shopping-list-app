@@ -4,7 +4,8 @@ import { useNavigation } from '@react-navigation/native'
 import * as Icon from "react-native-feather";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../redux/Slices/fetchDataSlice';
-import { deleteItem } from '../redux/Slices/AddDataSlice';
+import { deleteItem } from '../redux/Slices/deleteDataSlice';
+
 
 export default function ListCard() {
 
@@ -26,7 +27,7 @@ export default function ListCard() {
 
   useEffect(() => {
     dispatch(fetchData());
-  }, [])
+  }, [data])
 
   return (
     <View>

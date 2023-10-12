@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, SafeAreaView, TextInput } from 'react-nat
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/Slices/AddDataSlice';
+import { useNavigation } from '@react-navigation/native';
 
 export default function AddScreen() {
   const [itemName, setItemName] = useState('');
@@ -9,6 +10,8 @@ export default function AddScreen() {
   const [quantity, setQuantity] = useState('');
 
   const dispatch = useDispatch()
+
+  const navigation = useNavigation()
 
   const handleAdd = async (e) => {
     e.preventDefault()
@@ -18,15 +21,12 @@ export default function AddScreen() {
       description: itemDescription,
       quantity: quantity
     }))
-
+    navigation.navigate('Home')
   }
 
   return (
     <SafeAreaView>
       <View>
-        <View style={{ marginHorizontal: 6 }}>
-          <Text>Add New Item</Text>
-        </View>
         <View style={{ marginHorizontal: 10 }}>
           <TextInput
             onChangeText={(text) => setItemName(text)}
@@ -47,7 +47,7 @@ export default function AddScreen() {
         <View style={{ marginHorizontal: 10 }}>
           <TouchableOpacity
             onPress={handleAdd}
-            style={{ backgroundColor: 'blue', height: 40, borderRadius: 5, marginVertical: 5, alignItems: 'center', justifyContent: 'center' }}
+            style={{backgroundColor: '#657AFF', height: 40, borderRadius: 5, marginVertical: 5, alignItems: 'center', justifyContent: 'center' }}
           >
             <Text style={{ color: 'white' }}>Submit</Text>
           </TouchableOpacity>
